@@ -1,0 +1,32 @@
+// Importa suas variáveis e mixins
+@use "../public/assets/variables" as var;
+@use "../public/assets/mixins" as mix;
+
+// Estilos Globais
+:root {
+  --bg-primary: #{var.$primary-500};
+  --accent-color: #{var.$accent-100};
+}
+
+body {
+  background-color: #{var.$primary-500};
+  color: #ffffff;
+  margin: 0;
+  font-family: #{var.$primary-font};
+  -webkit-font-smoothing: antialiased;
+}
+
+// Suas classes utilitárias personalizadas (o "seu" Tailwind)
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-container {
+  min-height: 100vh;
+  padding: 2rem;
+  @media (min-width: 768px) {
+    padding: 3rem;
+  }
+}

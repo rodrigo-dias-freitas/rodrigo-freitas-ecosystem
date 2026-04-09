@@ -1,0 +1,106 @@
+// Cores Primárias
+$primary-100: #001133;
+$primary-200: #001A3A;
+$primary-300: #002266;
+$primary-400: #000D1A;
+$primary-500: #00061F;
+
+// Cores de Destaque
+$accent-100: #FF4433;
+$accent-200: #FF6655;
+$accent-300: #FF8877;
+$accent-400: #CC3729;
+$accent-500: #993026;
+
+// Cores de Realce
+$highlight-100: #FFDD00;
+$highlight-200: #FFEE66;
+$highlight-300: #FFFF99;
+$highlight-400: #CCB300;
+$highlight-500: #998900;
+
+// Cores de Fundo
+$background-100: #FFFFFF;
+$background-200: #F2F2F2;
+$background-300: #E6E6E6;
+
+// Cores Neutras
+$neutral-100: #333333;
+$neutral-200: #4D4D4D;
+
+
+$primary-font: 'Roboto', sans-serif;
+
+
+$font-weights: (
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700,
+  bolder: 900
+);
+
+$font-sizes: (
+  display-large: 3.563rem,   // 57px
+  display-medium: 2.813rem,  // 45px
+  display-small: 2.25rem,    // 36px
+  headline-large: 2rem,      // 32px
+  headline-medium: 1.75rem,  // 28px
+  headline-small: 1.5rem,    // 24px
+  title-large: 1.375rem,     // 22px
+  title-medium: 1rem,        // 16px
+  title-small: 0.875rem,     // 14px
+  body-large: 1rem,          // 16px
+  body-medium: 0.875rem,     // 14px
+  body-small: 0.75rem,       // 12px
+  label-large: 0.875rem,     // 14px
+  label-medium: 0.75rem,     // 12px
+  label-small: 0.688rem      // 11px
+);
+
+$primary-colors: (
+  100: $primary-100,
+  200: $primary-200,
+  300: $primary-300,
+  400: $primary-400,
+  500: $primary-500
+);
+
+$accent-colors: (
+  100: $accent-100,
+  200: $accent-200,
+  300: $accent-300,
+  400: $accent-400,
+  500: $accent-500
+);
+
+$highlight-colors: (
+  100: $highlight-100,
+  200: $highlight-200,
+  300: $highlight-300,
+  400: $highlight-400,
+  500: $highlight-500
+);
+
+$background-colors: (
+  100: $background-100,
+  200: $background-200,
+  300: $background-300
+);
+
+$neutral-colors: (
+  100: $neutral-100,
+  200: $neutral-200
+);
+
+$line-height-regular: 1.5;
+
+// Agrupando os mapas de cores em um único mapa
+$color-groups: (
+  primary: $primary-colors,
+  accent: $accent-colors,
+  highlight: $highlight-colors,
+  background: $background-colors,
+  neutral: $neutral-colors
+);
