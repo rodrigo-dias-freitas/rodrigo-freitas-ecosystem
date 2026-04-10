@@ -162,3 +162,19 @@ app-root {
   // Sutil gradiente para dar profundidade ao "Dark Mode"
   background: radial-gradient(circle at top right, rgba(255,255,255,0.02), transparent);
 }
+
+.assets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.section-label {
+  color: #fff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 2rem 0 1rem 0;
+  opacity: 0.7;
+}

@@ -34,6 +34,18 @@
 
     <main class="content-area">
       <app-bio></app-bio>
+
+      <h3 class="section-label">Monitoramento de Ativos</h3>
+      <div class="assets-grid">
+        <app-asset-card 
+          symbol="WINM26" 
+          name="Mini Índice" 
+          [price]="128450" 
+          [change]="0.85" 
+          [min]="127100" 
+          [max]="129200">
+        </app-asset-card>
+      </div>
       <router-outlet></router-outlet>
     </main>
   </div>

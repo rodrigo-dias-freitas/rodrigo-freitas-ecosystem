@@ -1,0 +1,81 @@
+@use "../../../../public/assets/variables" as var;
+
+:host {
+  display: block;
+}
+
+.asset-card {
+  background: var.$primary-400;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(var.$accent-100, 0.3);
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .symbol {
+    font-weight: 800;
+    color: var.$accent-100;
+    letter-spacing: 1px;
+  }
+
+  .change {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    
+    &.positive { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
+    &.negative { background: rgba(255, 68, 68, 0.1); color: #ff4444; }
+  }
+}
+
+.price-section {
+  margin-bottom: 1.5rem;
+  .current-price {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    color: #fff;
+  }
+  .label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 4px;
+  }
+}
+
+.market-range {
+  .range-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 6px;
+  }
+  
+  .range-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+
+    .progress {
+      height: 100%;
+      background: var.$accent-100;
+      box-shadow: 0 0 10px var.$accent-100;
+    }
+  }
+}
