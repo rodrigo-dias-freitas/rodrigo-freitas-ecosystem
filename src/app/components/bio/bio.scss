@@ -1,0 +1,90 @@
+@use "../../../../public/assets/variables" as var;
+
+:host {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.bio-card {
+  padding: 1.5rem; // Reduzi de 2.5rem para caber no mobile
+  margin: 1rem;    // Margem externa para não colar na borda da tela
+  
+  .bio-grid {
+    display: flex;       // Em vez de grid, use flex no mobile
+    flex-direction: column; 
+    gap: 1.5rem;
+    text-align: center;
+    
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      text-align: left;
+    }
+  }
+}
+
+
+.profile-side {
+  .avatar-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid var.$accent-100;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var.$primary-500;
+    
+    span {
+      font-weight: 900;
+      color: var.$accent-100;
+      font-size: 2.5rem;
+    }
+    img{
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+  h2 { font-size: 1.2rem; margin: 0; color: #fff; }
+  p { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 5px; }
+}
+
+.info-side {
+  h3 {
+    color: var.$accent-100;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+    font-size: 1.05rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 2rem;
+    justify-content: center; // Centraliza no mobile
+    flex-wrap: wrap;         // Permite que elas desçam se não couberem
+  
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+    }
+
+    .tag {
+      background: rgba(var.$accent-100, 0.05);
+      color: var.$accent-100;
+      border: 1px solid rgba(var.$accent-100, 0.2);
+      padding: 5px 15px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+  }
+}
