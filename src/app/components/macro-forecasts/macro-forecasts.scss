@@ -1,0 +1,69 @@
+@use "../../../../public/assets/variables" as var;
+
+.forecast-container {
+  margin-top: 2rem;
+  
+  .section-header {
+    margin-bottom: 1.5rem;
+    h3 { 
+      font-size: 0.9rem; 
+      text-transform: uppercase; 
+      letter-spacing: 2px;
+      span { color: var.$accent-100; font-weight: 300; }
+    }
+  }
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.month-card {
+  background: rgba(var.$primary-400, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+
+  &.highlight {
+    border-color: rgba(0, 255, 136, 0.3);
+    background: linear-gradient(145deg, rgba(var.$primary-400, 0.4), rgba(0, 255, 136, 0.02));
+  }
+
+  .month-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+  }
+}
+
+.values-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  .val {
+    display: flex;
+    flex-direction: column;
+    .tag { font-size: 0.6rem; font-weight: 800; color: rgba(255, 255, 255, 0.3); }
+    .num { font-size: 1.5rem; font-weight: 900; }
+  }
+
+  .sflim .num { color: var.$accent-100; }
+  .real .num { color: #fff; }
+}
+
+.status-bar {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+
+  &.divergence { background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.4); }
+  &.precision { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
+}
