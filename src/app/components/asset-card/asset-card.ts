@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AssetData } from '../../models/asset.model';
 
 @Component({
   selector: 'app-asset-card',
@@ -10,18 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class AssetCard {
 
-  @Input() symbol: string = '---';
-  @Input() name: string = 'Ativo';
-  @Input() price: number = 0;
-  @Input() change: number = 0;
-  @Input() min: number = 0;
-  @Input() max: number = 0;
+  @Input() asset!: AssetData;
 
-  // Lógica para calcular a posição da barra de progresso (Range)
-  get percentage(): number {
-    if (this.max === this.min) return 0;
-    const pos = ((this.price - this.min) / (this.max - this.min)) * 100;
-    return Math.min(Math.max(pos, 0), 100); // Trava entre 0 e 100
+  
+  
+  calculateProgress(): number {
+    if (!this.asset || this.asset.high === this.asset.low) return 50;
+    const progress = ((this.asset.price - this.asset.low) / (this.asset.high - this.asset.low)) * 100;
+    return Math.min(Math.max(progress, 0), 100);
   }
 
 }

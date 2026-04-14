@@ -45,7 +45,7 @@ app-root {
   overflow-x: hidden;
 }
 
-// Top Bar (Onde o RF SYSTEM brilha)
+
 .top-bar {
   height: 50px;
   background-color: var.$primary-400;
@@ -177,4 +177,78 @@ app-root {
   letter-spacing: 2px;
   margin: 2rem 0 1rem 0;
   opacity: 0.7;
+}
+
+.trend-indicator-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var.$background-300;
+  
+  .status { font-weight: 800; letter-spacing: 2px; color: var.$background-300;}
+
+  &.alta { 
+    color: #00ff88; 
+    border-color: rgba(0, 255, 136, 0.3);
+    .glow-dot { box-shadow: 0 0 15px #00ff88; background: #00ff88; }
+  }
+  
+  &.baixa { 
+    color: #ff4444; 
+    border-color: rgba(255, 68, 68, 0.3);
+    .glow-dot { box-shadow: 0 0 15px #ff4444; background: #ff4444; }
+  }
+
+  .glow-dot { width: 10px; height: 10px; border-radius: 50%; }
+}
+
+.asset-group {
+  margin-bottom: 40px;
+  h3 {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+    border-left: 3px solid #ff4444; // Cor da sua marca
+    padding-left: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+.main-sectors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; // Divide em duas colunas iguais
+  gap: 20px; // Espaçamento entre as colunas
+  margin-bottom: 20px;
+}
+
+// Para manter a responsividade (se a tela for pequena, elas empilham)
+@media (max-width: 1200px) {
+  .main-sectors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.assets-grid {
+  display: grid;
+  // Aqui dentro de cada coluna, os cards se organizam sozinhos
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.asset-group {
+  h3 {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 15px;
+    border-left: 3px solid #ff4444;
+    padding-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 }

@@ -1,81 +1,68 @@
-@use "../../../../public/assets/variables" as var;
-
-:host {
-  display: block;
-}
-
 .asset-card {
-  background: var.$primary-400;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-  cursor: pointer;
+  background: rgba(30, 30, 35, 0.6);
+  border-radius: 12px;
+  padding: 16px;
+  border-left: 4px solid #444; // Fallback
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s;
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: rgba(var.$accent-100, 0.3);
-  }
-}
+  &:hover { transform: translateY(-4px); }
 
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  &.bull-border { border-left-color: #00ff88; }
+  &.bear-border { border-left-color: #ff4444; }
 
-  .symbol {
-    font-weight: 800;
-    color: var.$accent-100;
-    letter-spacing: 1px;
-  }
-
-  .change {
-    font-size: 0.8rem;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 6px;
-    
-    &.positive { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
-    &.negative { background: rgba(255, 68, 68, 0.1); color: #ff4444; }
-  }
-}
-
-.price-section {
-  margin-bottom: 1.5rem;
-  .current-price {
-    font-size: 2rem;
-    font-weight: 900;
-    margin: 0;
-    color: #fff;
-  }
-  .label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
-    margin-top: 4px;
-  }
-}
-
-.market-range {
-  .range-info {
+  .card-header {
     display: flex;
     justify-content: space-between;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 6px;
-  }
-  
-  .range-bar {
-    height: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 2px;
-    overflow: hidden;
+    align-items: flex-start;
+    margin-bottom: 15px;
 
-    .progress {
-      height: 100%;
-      background: var.$accent-100;
-      box-shadow: 0 0 10px var.$accent-100;
+    .symbol { font-size: 1.2rem; font-weight: 700; color: #fff; }
+    .asset-name { font-size: 0.75rem; color: #888; }
+
+    .symbol-info {
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .percentage-box {
+      padding: 4px 8px;
+      border-radius: 6px;
+      .change { font-size: 0.85rem; font-weight: 600; }
+    }
+  }
+
+  .price-section {
+    margin-bottom: 20px;
+    .label { font-size: 0.65rem; color: #666; letter-spacing: 1px; }
+    .price { font-size: 1.8rem; margin: 0; color: #fff; font-family: 'JetBrains Mono', monospace; }
+  }
+
+  .range-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .range-info {
+      display: flex;
+      flex-direction: column;
+      .range-label { font-size: 0.6rem; color: #555; }
+      .range-value { font-size: 0.75rem; color: #bbb; }
+    }
+
+    .range-bar {
+      flex-grow: 1;
+      height: 4px;
+      background: #333;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+
+      .range-fill {
+        height: 100%;
+        transition: width 0.5s ease-out;
+      }
     }
   }
 }

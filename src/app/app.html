@@ -37,32 +37,38 @@
       <app-market-insights></app-market-insights>
       <app-macro-forecasts></app-macro-forecasts>
       <h3 class="section-label">Monitoramento de Ativos</h3>
-      <div class="assets-grid">
-        <app-asset-card 
-          symbol="WINM26" 
-          name="Mini Índice" 
-          [price]="128450" 
-          [change]="0.85" 
-          [min]="127100" 
-          [max]="129200">
-        </app-asset-card>
-        <app-asset-card 
-          symbol="PETR4" 
-          name="Petrobras" 
-          [price]="38.42" 
-          [change]="-1.20" 
-          [min]="37.90" 
-          [max]="39.10">
-        </app-asset-card>
+      <div class="trend-indicator-bar" [ngClass]="tendenciaGeral.toLowerCase()">
+        <span class="label">SINALIZADOR SFLIM:</span>
+        <span class="status">{{ tendenciaGeral }}</span>
+        <div class="glow-dot"></div>
+      </div>
 
-        <app-asset-card 
-          symbol="VALE3" 
-          name="Vale ON" 
-          [price]="62.15" 
-          [change]="0.15" 
-          [min]="61.80" 
-          [max]="63.00">
-        </app-asset-card>
+      <div class="monitor-container">
+        <div class="main-sectors-grid">
+          <section class="asset-group">
+            <h3>ÍNDICES E TAXAS</h3>
+            <div class="assets-grid">
+              <app-asset-card *ngFor="let asset of indices" [asset]="asset"></app-asset-card>
+            </div>
+          </section>
+
+          <section class="asset-group">
+            <h3>SETOR BANCÁRIO</h3>
+            <div class="assets-grid">
+              <app-asset-card *ngFor="let asset of bancos" [asset]="asset"></app-asset-card>
+            </div>
+          </section>
+
+        </div>
+        
+
+        <section class="asset-group">
+          <h3>COMMODITIES E OUTROS</h3>
+          <div class="assets-grid">
+            <app-asset-card *ngFor="let asset of acoes" [asset]="asset"></app-asset-card>
+          </div>
+        </section>
+        
       </div>
       <router-outlet></router-outlet>
     </main>
