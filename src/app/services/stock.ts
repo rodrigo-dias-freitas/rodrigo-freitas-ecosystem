@@ -85,7 +85,7 @@ export class Stock {
       symbol: 'DI1F32', 
       name: 'Índice DI', 
       price: 13.37, 
-      change_percent: 0.11, 
+      change_percent: -0.19, 
       low: 13.31, 
       high: 13.37 
     },

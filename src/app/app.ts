@@ -7,6 +7,7 @@ import { MacroForecasts } from "./components/macro-forecasts/macro-forecasts";
 import { CommonModule } from '@angular/common';
 import { AssetData } from './models/asset.model';
 import { Stock } from './services/stock';
+import { Asset, AssetService } from './services/asset.service';
 
 @Component({
   selector: 'app-root',
@@ -18,15 +19,20 @@ import { Stock } from './services/stock';
 export class App implements OnInit {
   protected readonly title = signal('rodrigo-freitas-ecosystem');
 
-  assets: AssetData[] = [];
+  assets: Asset[] = [];
   indices: AssetData[] = [];
   bancos: AssetData[] = [];
   acoes: AssetData[] = [];
   tendenciaGeral: string = '';
+  banking: Asset[] = [];
+  commodities: Asset[] = [];
 
-  constructor(private stockService: Stock) {}
+  constructor(private stockService: Stock, private assetService: AssetService) {}
 
   ngOnInit(){
+
+    this.loadAssets();
+
     this.stockService.getMarketData().subscribe(data => {
       // Filtramos por categorias (ajuste os símbolos conforme sua lista)
       this.indices = data.filter(a => ['DI1F28', 'DI1F30', 'DI1F32'].includes(a.symbol));
@@ -75,5 +81,19 @@ export class App implements OnInit {
     else {
       this.tendenciaGeral = 'NEUTRA'; // Bancos não confirmaram o lado do DI
     }
+  }
+
+  loadAssets() {
+    this.assetService.getAssets().subscribe(data => {
+
+      this.banking = data.filter(a =>
+        ['ITUB4','BBDC4','BBAS3','B3SA3'].includes(a.symbol)
+      );
+
+      this.commodities = data.filter(a =>
+        ['PETR4','VALE3'].includes(a.symbol)
+      );
+
+    });
   }
 }

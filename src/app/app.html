@@ -54,8 +54,11 @@
 
           <section class="asset-group">
             <h3>SETOR BANCÁRIO</h3>
-            <div class="assets-grid">
-              <app-asset-card *ngFor="let asset of bancos" [asset]="asset"></app-asset-card>
+            <div *ngFor="let asset of banking">
+              <p>{{ asset.symbol }} - {{ asset.price }}</p>
+              <p [style.color]="asset.changePercent >= 0 ? 'green' : 'red'">
+                {{ asset.changePercent | number:'1.2-2' }}%
+              </p>
             </div>
           </section>
 
@@ -64,8 +67,11 @@
 
         <section class="asset-group">
           <h3>COMMODITIES E OUTROS</h3>
-          <div class="assets-grid">
-            <app-asset-card *ngFor="let asset of acoes" [asset]="asset"></app-asset-card>
+          <div *ngFor="let asset of commodities">
+            <p>{{ asset.symbol }} - {{ asset.price }}</p>
+            <p [style.color]="asset.changePercent >= 0 ? 'green' : 'red'">
+              {{ asset.changePercent | number:'1.2-2' }}%
+            </p>
           </div>
         </section>
         
