@@ -1,0 +1,86 @@
+<div class="rf-layout">
+  <header class="top-bar">
+    <div class="brand">RF <span>SYSTEM</span></div>
+    
+    <div class="market-ticker">
+      <span class="ticker-item">WIN: <span class="up">128.450 (+0.45%)</span></span>
+      <span class="ticker-item">IPCA: <span class="neutral">0.16%</span></span>
+    </div>
+
+    <div class="user-profile">
+      <span class="status-dot"></span>
+      Rodrigo Freitas
+    </div>
+  </header>
+
+  <div class="main-body">
+    <aside class="sidebar">
+      <nav class="nav-menu">
+        <a href="#" class="nav-link active">
+          <i class="icon-dashboard"></i> <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="icon-sflim"></i> <span>SFLIM Logics</span>
+        </a>
+        <a href="#" class="nav-link">
+          <i class="icon-finance"></i> <span>Gestão FII</span>
+        </a>
+        <hr class="divider">
+        <a href="#" class="nav-link">
+          <i class="icon-portfolio"></i> <span>Mixology UI</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="content-area">
+      <app-bio></app-bio>
+      <app-market-insights></app-market-insights>
+      <app-macro-forecasts></app-macro-forecasts>
+      <h3 class="section-label">Monitoramento de Ativos</h3>
+      <div class="trend-indicator-bar" [ngClass]="tendenciaGeral.toLowerCase()">
+        <span class="label">SINALIZADOR SFLIM:</span>
+        <span class="status">{{ tendenciaGeral }}</span>
+        <div class="glow-dot"></div>
+      </div>
+
+      <div class="monitor-container">
+        <div class="main-sectors-grid">
+          <section class="asset-group">
+            <h3>ÍNDICES E TAXAS</h3>
+            <div class="assets-grid">
+              <app-asset-card *ngFor="let asset of indices" [asset]="asset"></app-asset-card>
+            </div>
+          </section>
+
+          <section class="asset-group">
+            <h3>SETOR BANCÁRIO</h3>
+            <div *ngFor="let asset of banking">
+              <p>{{ asset.symbol }} - {{ asset.price }}</p>
+              <p [style.color]="asset.changePercent >= 0 ? 'green' : 'red'">
+                {{ asset.changePercent | number:'1.2-2' }}%
+              </p>
+            </div>
+          </section>
+
+        </div>
+        
+
+        <section class="asset-group">
+          <h3>COMMODITIES E OUTROS</h3>
+          <div *ngFor="let asset of commodities">
+            <p>{{ asset.symbol }} - {{ asset.price }}</p>
+            <p [style.color]="asset.changePercent >= 0 ? 'green' : 'red'">
+              {{ asset.changePercent | number:'1.2-2' }}%
+            </p>
+          </div>
+        </section>
+        
+      </div>
+      <div *ngFor="let asset of assets">
+        <h2>Ações</h2>
+        <p>{{ asset.symbol }} - {{ asset.price }}</p>
+      </div>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

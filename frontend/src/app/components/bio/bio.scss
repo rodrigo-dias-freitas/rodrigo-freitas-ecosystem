@@ -1,0 +1,93 @@
+@use "../../../../..//public/assets/variables" as var;
+
+:host {
+  display: block;
+  margin-bottom: 1.5rem; // Reduzi a margem inferior
+}
+
+.bio-card {
+  background: rgba(var.$primary-400, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px; // Arredondamento um pouco menor para combinar com o slim
+  padding: 1rem 1.5rem; // Padding bem mais reduzido (foco horizontal)
+  
+  .bio-grid {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+}
+
+.profile-side {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: fit-content;
+
+  .avatar-frame {
+    width: 60px;  // Reduzi de 120px para 60px
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var.$accent-100;
+    overflow: hidden;
+    background: var.$primary-500;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .name-meta {
+    h2 { font-size: 1.1rem; margin: 0; color: #fff; }
+    p { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin: 0; }
+  }
+}
+
+.info-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 2rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    border-left: none;
+    padding-left: 0;
+    gap: 0.5rem;
+  }
+
+  .description {
+    line-height: 1.4;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem; // Texto menor para não ocupar linhas demais
+    max-width: 600px;
+    margin: 0;
+  }
+
+  .skill-tags {
+    display: flex;
+    gap: 8px;
+
+    .tag {
+      background: rgba(var.$accent-100, 0.05);
+      color: var.$accent-100;
+      border: 1px solid rgba(var.$accent-100, 0.2);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      white-space: nowrap;
+    }
+  }
+}
